@@ -154,7 +154,124 @@ POST /api/reservas
   nombre: "Juan Pérez",
   telefono: "229-133-9124",
   email: "juan@email.com",
-  precioTotal: 100
+precio total: 100"
 
 
-## 📁 Estructura del Proyecto
+___________________________________________________________________________________________________________________________
+
+# 🏟️ SportReserva - Sistema de Reservas de Canchas Deportivas
+
+![Version](https://img.shields.io/badge/version-2.0.0-brightgreen)
+![FastAPI](https://img.shields.io/badge/FastAPI-005571?logo=fastapi)
+![Python](https://img.shields.io/badge/Python-3.11+-blue)
+![Bootstrap](https://img.shields.io/badge/Bootstrap-5-7952B3)
+
+## 📋 Descripción General
+
+SportReserva es una plataforma completa para la reserva de canchas deportivas que combina un frontend interactivo con una API REST profesional. Los usuarios pueden explorar canchas, filtrar por deporte y ciudad, realizar reservas y gestionar sus reservas existentes.
+
+### ✨ Características Principales
+
+- **Frontend**: Interfaz responsive con Bootstrap 5 y JavaScript vanilla
+- **Backend**: API REST con FastAPI y PostgreSQL/SQLite
+- **Autenticación**: JWT con soporte para roles (admin/cliente)
+- **Persistencia dual**: LocalStorage + Base de datos
+- **Modo offline**: Funciona sin conexión a internet
+- **Documentación automática**: Swagger UI y ReDoc
+- **Validaciones**: Pydantic para schemas, constraints en BD
+
+## 🚀 Tecnologías Utilizadas
+
+### Frontend
+| Tecnología | Versión | Uso |
+|------------|---------|-----|
+| HTML5 | - | Estructura |
+| CSS3 | - | Estilos personalizados |
+| Bootstrap | 5.3.0 | Framework CSS |
+| Font Awesome | 6.4.0 | Iconos |
+| JavaScript | ES6 | Lógica de cliente |
+
+### Backend
+| Tecnología | Versión | Uso |
+|------------|---------|-----|
+| FastAPI | 0.104.1 | Framework web |
+| SQLAlchemy | 2.0.23 | ORM |
+| Pydantic | 2.5.0 | Validación |
+| JWT | - | Autenticación |
+| Alembic | 1.12.1 | Migraciones |
+| PostgreSQL | - | Base de datos |
+
+## 📦 Estructura del Proyecto
+PROYECTO-RESERVAS-CANCHAS/
+├── frontend/ # Aplicación web cliente
+├── backend/ # API REST
+├── docs/ # Documentación técnica
+└── .vscode/ # Configuración IDE
+
+
+## 🔧 Instalación y Configuración
+
+### Requisitos Previos
+- Python 3.11 o superior
+- Node.js (opcional, para live server)
+- Git
+
+### Paso 1: Clonar el Repositorio
+```bash
+git clone https://github.com/tuusuario/PROYECTO-RESERVAS-CANCHAS.git
+cd PROYECTO-RESERVAS-CANCHAS
+
+Paso 2: Configurar Backend
+<img width="328" height="520" alt="image" src="https://github.com/user-attachments/assets/35e5d370-4441-46dc-8353-e2e5b27008f8" />
+
+Paso 3: Configurar Frontend
+<img width="359" height="230" alt="image" src="https://github.com/user-attachments/assets/c63c64da-eb1e-4852-b5fa-3a68e1eaab22" />
+
+Usuarios de Prueba
+Administrador
+
+Email: admin@sportreserva.com
+Password: admin123
+Rol: Administrador
+
+Cliente Regular
+
+Email: cliente@test.com
+Password: cliente123
+Rol: Cliente
+
+Modelo de Datos
+Entidades Principales
+Usuario - Clientes y administradores
+
+Deporte - Catálogo de deportes (fútbol, tenis, etc.)
+
+Cancha - Instalaciones deportivas
+
+Reserva - Reservas de canchas
+
+Pago - Transacciones asociadas
+
+Relaciones
+Usuario 1:N Reserva
+
+Cancha 1:N Reserva
+
+Deporte 1:N Cancha
+
+Reserva 1:1 Pago
+
+🔒 Reglas de Negocio
+✅ No se permiten reservas en fechas pasadas
+
+✅ No hay solapamiento de horarios en misma cancha
+
+✅ Email único por usuario
+
+✅ Solo el propietario puede cancelar su reserva
+
+✅ Horarios dentro del rango de operación
+
+✅ Precio total automático (precio_hora × duración)
+
+✅ Estados de reserva: pendiente → confirmada → completada/cancelada
